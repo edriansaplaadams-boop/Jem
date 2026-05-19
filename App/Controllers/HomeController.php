@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Core\Controller;
+
 /**
  * HomeController - Handles home page and general routes
  */
-class HomeController
+class HomeController extends Controller
 {
     /**
      * Display home page
@@ -13,6 +15,6 @@ class HomeController
     public function index()
     {
         $title = 'Jobseeker Philippines - Find Your Dream Job';
-        require '../App/views/home.view.php';
+        $this->view('home', compact('title'));
     }
 }

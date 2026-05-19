@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Core\Controller;
+
 /**
  * ErrorController - Handles error pages
  */
-class ErrorController
+class ErrorController extends Controller
 {
     /**
      * 404 Not Found
@@ -14,7 +16,7 @@ class ErrorController
     {
         http_response_code(404);
         $title = '404 - Page Not Found';
-        require '../App/views/error/404.view.php';
+        $this->view('error/404', compact('title'));
     }
 
     /**
@@ -24,16 +26,16 @@ class ErrorController
     {
         http_response_code(403);
         $title = '403 - Forbidden';
-        require '../App/views/error/403.view.php';
+        $this->view('error/403', compact('title'));
     }
 
     /**
      * 500 Server Error
      */
-    public function serverError()
+    public function serverError($message = null)
     {
         http_response_code(500);
         $title = '500 - Server Error';
-        require '../App/views/error.view.php';
+        $this->view('error', compact('title', 'message'));
     }
 }

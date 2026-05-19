@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Core\Controller;
+
 /**
  * ListingController - Handles job listings
  */
-class ListingController
+class ListingController extends Controller
 {
     /**
      * Display all job listings
@@ -15,8 +17,8 @@ class ListingController
         $title = 'Browse Jobs - Jobseeker Philippines';
         $search = $_GET['search'] ?? '';
         $location = $_GET['location'] ?? '';
-        
-        require '../App/views/listings/index.view.php';
+
+        $this->view('listings/index', compact('title', 'search', 'location'));
     }
 
     /**
@@ -25,14 +27,13 @@ class ListingController
     public function show()
     {
         $id = $_GET['id'] ?? null;
-        
+
         if (!$id) {
-            header('Location: /edrian/public/index.php?controller=listing&action=index');
-            exit;
+            redirect(appUrl('index.php?controller=listing&action=index'));
         }
-        
+
         $title = 'Job Details - Jobseeker Philippines';
-        require '../App/views/listings/show.view.php';
+        $this->view('listings/show', compact('title', 'id'));
     }
 
     /**
@@ -42,19 +43,17 @@ class ListingController
     {
         if (!isLoggedIn()) {
             flashMessage('Please log in to post a job.', 'warning');
-            header('Location: /edrian/public/index.php?controller=user&action=login');
-            exit;
+            redirect(appUrl('index.php?controller=user&action=login'));
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // TODO: Validate and save job listing
             flashMessage('Job posted successfully!', 'success');
-            header('Location: /edrian/public/index.php?controller=listing&action=index');
-            exit;
+            redirect(appUrl('index.php?controller=listing&action=index'));
         }
 
         $title = 'Post a Job - Jobseeker Philippines';
-        require '../App/views/listings/create.view.php';
+        $this->view('listings/create', compact('title'));
     }
 
     /**
@@ -63,18 +62,16 @@ class ListingController
     public function edit()
     {
         if (!isLoggedIn()) {
-            header('Location: /edrian/public/index.php?controller=user&action=login');
-            exit;
+            redirect(appUrl('index.php?controller=user&action=login'));
         }
 
         $id = $_GET['id'] ?? null;
-        
+
         if (!$id) {
-            header('Location: /edrian/public/index.php?controller=listing&action=index');
-            exit;
+            redirect(appUrl('index.php?controller=listing&action=index'));
         }
 
         $title = 'Edit Job - Jobseeker Philippines';
-        require '../App/views/listings/edit.view.php';
+        $this->view('listings/edit', compact('title', 'id'));
     }
 }

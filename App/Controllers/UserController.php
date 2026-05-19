@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Core\Controller;
+
 /**
  * UserController - Handles user authentication and profiles
  */
-class UserController
+class UserController extends Controller
 {
     /**
      * User login
@@ -13,8 +15,7 @@ class UserController
     public function login()
     {
         if (isLoggedIn()) {
-            header('Location: /edrian/public/index.php');
-            exit;
+            redirect(appUrl('index.php'));
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,14 +25,13 @@ class UserController
             // TODO: Validate credentials against database
             $_SESSION['user_id'] = 1;
             $_SESSION['user'] = ['name' => 'John Doe', 'email' => $email];
-            
+
             flashMessage('Login successful! Welcome back.', 'success');
-            header('Location: /edrian/public/index.php');
-            exit;
+            redirect(appUrl('index.php'));
         }
 
         $title = 'Login - Jobseeker Philippines';
-        require '../App/views/users/login.view.php';
+        $this->view('users/login', compact('title'));
     }
 
     /**
@@ -40,8 +40,7 @@ class UserController
     public function create()
     {
         if (isLoggedIn()) {
-            header('Location: /edrian/public/index.php');
-            exit;
+            redirect(appUrl('index.php'));
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -53,14 +52,13 @@ class UserController
             // TODO: Validate and save user to database
             $_SESSION['user_id'] = 1;
             $_SESSION['user'] = ['name' => $name, 'email' => $email];
-            
+
             flashMessage('Account created successfully! Welcome to Jobseeker Philippines.', 'success');
-            header('Location: /edrian/public/index.php');
-            exit;
+            redirect(appUrl('index.php'));
         }
 
         $title = 'Sign Up - Jobseeker Philippines';
-        require '../App/views/users/create.view.php';
+        $this->view('users/create', compact('title'));
     }
 
     /**
@@ -69,12 +67,11 @@ class UserController
     public function show()
     {
         if (!isLoggedIn()) {
-            header('Location: /edrian/public/index.php?controller=user&action=login');
-            exit;
+            redirect(appUrl('index.php?controller=user&action=login'));
         }
 
         $title = 'My Profile - Jobseeker Philippines';
-        require '../App/views/users/create.view.php'; // Placeholder - create profile view later
+        $this->view('users/create', compact('title')); // Placeholder - create profile view later
     }
 
     /**
@@ -84,7 +81,6 @@ class UserController
     {
         session_destroy();
         flashMessage('You have been logged out successfully.', 'info');
-        header('Location: /edrian/public/index.php');
-        exit;
+        redirect(appUrl('index.php'));
     }
 }

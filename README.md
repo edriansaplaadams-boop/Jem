@@ -49,12 +49,15 @@
 ```
 jobseeker-philippines/
 ├── App/
-│   ├── controllers/          # MVC Controllers
+│   ├── Controllers/        # MVC Controllers
 │   │   ├── HomeController.php
 │   │   ├── ListingController.php
 │   │   ├── UserController.php
 │   │   └── ErrorController.php
-│   └── views/
+│   ├── Core/               # Core framework utilities
+│   │   ├── Controller.php
+│   │   └── Router.php
+│   └── Views/
 │       ├── home.view.php
 │       ├── error.view.php
 │       ├── listings/
@@ -72,19 +75,21 @@ jobseeker-philippines/
 │           ├── head.php
 │           ├── navbar.php
 │           └── footer.php
-├── Framework/               # Core Framework Classes
 ├── config/
-│   └── db.php              # Database Configuration
+│   ├── app.php             # App configuration
+│   └── db.php              # Database configuration
 ├── public/
-│   ├── index.php           # Main Entry Point
+│   ├── index.php           # Main entry point
 │   ├── css/
-│   │   ├── style.css       # Main Stylesheet
-│   │   └── custom.css      # Custom Styles
-│   └── images/
-├── autoload.php            # PSR-4 Autoloader
-├── helpers.php             # Helper Functions
-├── composer.json           # Project Dependencies
-└── README.md              # This File
+│   │   ├── style.css       # Main stylesheet
+│   │   └── custom.css      # Custom overrides
+├── autoload.php            # PSR-4 autoloader
+├── bootstrap.php           # App bootstrap and configuration
+├── helpers.php             # Helper functions
+├── composer.json           # Project dependencies
+├── routes.php              # Route mapping
+├── .gitignore              # Ignored files
+└── README.md               # This file
 ```
 
 ---
@@ -102,7 +107,7 @@ jobseeker-philippines/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/edriansaplaadams-boop/Jem.git
+git clone git@github.com:edriansaplaadams-boop/Jem.git
 cd edrian
 ```
 

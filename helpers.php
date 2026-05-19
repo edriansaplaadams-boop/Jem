@@ -15,6 +15,12 @@ function escape($value)
 /**
  * Redirect to a URL
  */
+function appUrl(string $path = '')
+{
+    $path = ltrim($path, '/');
+    return rtrim(BASE_URL, '/') . '/' . $path;
+}
+
 function redirect($path)
 {
     header("Location: {$path}");

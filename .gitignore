@@ -1,0 +1,19 @@
+# Project files
+/vendor/
+/.env
+/node_modules/
+/.vscode/
+/.idea/
+/.DS_Store
+
+# Logs
+*.log
+
+# System files
+Thumbs.db
+
+# PHPStorm
+*.iml
+
+# Composer
+composer.lock
