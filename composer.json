@@ -1,0 +1,21 @@
+{
+    "name": "edriansaplaadams-boop/jobseeker-philippines",
+    "description": "Jobseeker Philippines - Professional Job Board for Filipino Professionals. Find your dream job or post positions from top companies across the nation.",
+    "keywords": ["job board", "philippines", "careers", "employment", "hiring", "recruitment"],
+    "authors": [
+        {
+            "name": "Edrian Adams",
+            "email": "edriansaplaadams@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
