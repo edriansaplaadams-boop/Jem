@@ -15,23 +15,23 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header: #0f172a;
-  /* Deep navy slate - very professional */
+  --color-header: #102a43;
+  /* Deep slate blue - strong and polished */
   /* Header at navigation bar */
 
-  --color-accent: #1b2640;
-  /* Bright teal/blue accent - fresh at eye-catching */
+  --color-accent: #f59e0b;
+  /* Warm amber accent - bright and inviting */
   /* "Post a Job" button at mga highlight */
 
-  --color-page-bg: #f8fafc;
-  /* Very light cool gray - clean background */
+  --color-page-bg: #fff7ed;
+  /* Soft warm cream background for the full page */
   /* Background ng buong page */
 
   --color-card-bg: #ffffff;
   /* Pure white cards */
   /* Background ng mga card/box */
 
-  --color-heading: #0f172a;
+  --color-heading: #102a43;
   /* Dark slate for headings */
   /* Kulay ng mga title at heading */
 
@@ -39,26 +39,25 @@
   /* Medium slate gray - madaling basahin */
   /* Regular na body text */
 
-  --color-link: #0ea5e9;
-  /* Matches accent - professional blue */
+  --color-link: #f59e0b;
+  /* Matches accent - professional amber */
   /* Mga clickable na links */
 
-  --color-tag-bg: #e0f2fe;
-  /* Light teal background for tags */
+  --color-tag-bg: #fff7ed;
+  /* Light amber background for tags */
   /* Background ng mga tag/badge */
 
-  --color-tag-text: #0369a1;
-  /* Darker teal text */
+  --color-tag-text: #b45309;
+  /* Dark amber text */
   /* Text ng mga tag/badge */
 
-  --color-footer: #0f172a;
+  --color-footer: #102a43;
   /* Same as header for consistency */
   /* Footer background */
 
-  --showcase-overlay: rgba(15, 23, 42, 0.65);
-  /* Hero banner overlay - mas balanced */
+  --showcase-overlay: rgba(16, 42, 67, 0.65);
+  /* Hero banner overlay - more contrast */
 }
-
 
 /* ----------------------------------------------------------------
    SECTION 2: MGA FONT (Typography)
@@ -118,7 +117,7 @@ a {
 }
 
 a:hover {
-  color: #0284c8 !important;
+  color: #d97706 !important;
   text-decoration: underline;
 }
 
@@ -128,7 +127,8 @@ header {
 
 .bg-blue-900,
 .bg-blue-800,
-.bg-slate-900 {
+.bg-slate-900,
+.bg-emerald-900 {
   background-color: var(--color-header) !important;
 }
 
@@ -211,7 +211,7 @@ select:focus,
 textarea:focus {
   border-color: var(--color-accent) !important;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
 }
 
 /* Success badge */

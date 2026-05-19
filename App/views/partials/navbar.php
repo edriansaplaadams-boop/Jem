@@ -7,7 +7,7 @@ use Framework\Session;
 <header class="bg-emerald-900 text-white p-4">
     <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-3xl font-semibold">
-            <a href="/">PinasJobs</a>
+            <a href="/">Philippine CareerHub</a>
         </h1>
         <nav class="space-x-4">
             <?php if (Session::has('user')) : ?>
