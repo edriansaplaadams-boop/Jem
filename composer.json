@@ -1,0 +1,16 @@
+{
+    "name": "EdrianAdams/ws03-php",
+    "description": "Philippine CareerHub",
+    "authors": [
+        {"name": "Edrian Adams",
+         "email": "edriansaplaadams@gmail.com"
+        }
+    ],
+    
+    "autoload": {
+        "psr-4":{
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
